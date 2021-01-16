@@ -13,8 +13,7 @@ public class Peron {
     Timestamp timestamp = new Timestamp();
 
     @GetMapping("/currency")
-    public Coin getCurrency(@RequestParam(value = "timestamp",defaultValue = "") Instant instant){
+    public Coin getCurrency(@RequestParam(value = "timestamp", defaultValue = "") Instant instant) {
         return null;
     }
-
 }
