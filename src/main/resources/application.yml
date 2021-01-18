@@ -1,0 +1,14 @@
+server:
+  port: 9290
+  servlet:
+    context-path: '@app.context-path@'
+
+app:
+  id: '@project.artifactId@'
+  version: '@project.version@'
+
+spring:
+  main:
+    banner-mode: 'off'
+  profiles:
+    active: '@activatedProperties@'

@@ -1,20 +1,20 @@
 package com.tute.bitcoiner.dto;
 
-import java.time.Instant;
+import com.tute.bitcoiner.common.Timestamp;
 
 public class Currency {
 
     private double dollarsEquivalent;
-    private Instant instant;
+    private Timestamp timestamp;
 
-    public Currency(double dollarsEquivalent, Instant instant) {
+    public Currency(double dollarsEquivalent, Timestamp timestamp) {
         this.dollarsEquivalent = dollarsEquivalent;
-        this.instant = instant;
+        this.timestamp = timestamp;
     }
 
     public Currency(double dollarsEquivalent) {
         this.dollarsEquivalent = dollarsEquivalent;
-        this.instant = Instant.now();
+        this.timestamp = new Timestamp();
     }
 
     public double getDollarsEquivalent() {
@@ -25,11 +25,11 @@ public class Currency {
         this.dollarsEquivalent = dollarsEquivalent;
     }
 
-    public Instant getInstant() {
-        return instant;
+    public Timestamp getTimestamp() {
+        return timestamp;
     }
 
-    public void setInstant(Instant instant) {
-        this.instant = instant;
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 }

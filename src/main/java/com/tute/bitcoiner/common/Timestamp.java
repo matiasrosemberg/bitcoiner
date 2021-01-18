@@ -6,17 +6,21 @@ import java.time.ZoneId;
 
 public class Timestamp {
 
-    Instant instant;
+    private final Instant instant;
 
     public Timestamp() {
         this.instant = Instant.now();
     }
 
-    public Timestamp(Instant instant){
+    public Timestamp(Instant instant) {
         this.instant = instant;
     }
 
-    public Timestamp(LocalDateTime localDateTime){
+    public Timestamp(LocalDateTime localDateTime) {
         this.instant = localDateTime.atZone(ZoneId.of("AGT")).toInstant();
+    }
+
+    public Long getEpoch() {
+        return instant.toEpochMilli();
     }
 }
