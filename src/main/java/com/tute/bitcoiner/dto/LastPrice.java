@@ -1,19 +1,14 @@
 package com.tute.bitcoiner.dto;
 
-import java.io.Serializable;
+public class LastPrice {
 
-public class LastPrice implements Serializable {
     private String lprice;
+
     private String curr1;
+
     private String curr2;
 
     public LastPrice() {
-    }
-
-    public LastPrice(String lprice, String curr1, String curr2) {
-        this.lprice = lprice;
-        this.curr1 = curr1;
-        this.curr2 = curr2;
     }
 
     public String getLprice() {

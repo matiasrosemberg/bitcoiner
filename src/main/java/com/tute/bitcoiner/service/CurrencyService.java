@@ -43,11 +43,12 @@ public class CurrencyService {
 
     @Scheduled(fixedRate = 5000)
     public void addNewCurrency() {
-        Currency currentCurrency = currencyClient.getCurrentCurrency();
-        currencies.put(currentCurrency.getTimestamp().getEpoch(), currentCurrency);
-        sum = sum + currentCurrency.getDollarsEquivalent();
-        counter++;
-        average = sum / counter;
+        currencyClient.getCurrentCurrency().doOnNext(v -> {
+            currencies.put(v.getTimestamp().getEpoch(), v);
+            sum = sum + v.getDollarsEquivalent();
+            counter++;
+            average = sum / counter;
+        }).subscribe();
     }
 
 }
