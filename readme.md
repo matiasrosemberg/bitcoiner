@@ -49,10 +49,16 @@ Ejemplo de respuesta:
 # Como ejecutar el proyecto:
 
 Clonarse el proyecto https://github.com/matiasrosemberg/bitcoiner/
+
 Abrir la consola y correr el siguiente comandos.
+
 mvn clean install
+
 Luego de ello se generará la carpeta target.
+
 Por ultimo, dentro de la carpeta principal del proyecto, ejecutar el siguiente comando en la consola:
+
 java -jar target/bitcoiner-0.0.1-SNAPSHOT.jar 
+
 Esperar 5 segundos y listo!
 
