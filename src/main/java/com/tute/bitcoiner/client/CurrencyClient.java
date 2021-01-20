@@ -1,8 +1,5 @@
 package com.tute.bitcoiner.client;
 
-import com.tute.bitcoiner.dto.Currency;
-import com.tute.bitcoiner.dto.LastPrice;
-import com.tute.bitcoiner.exception.CurrencyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -20,17 +17,13 @@ public class CurrencyClient {
         this.webClient = webClient;
     }
 
-    public Mono<Currency> getCurrentCurrency() {
-        try {
-            return webClient
-                    .get()
-                    .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                    .accept(MediaType.APPLICATION_JSON)
-                    .retrieve()
-                    .bodyToMono(LastPrice.class).map(v -> new Currency(Double.parseDouble(v.getLprice())));
-        } catch (Exception e) {
-            throw new CurrencyException("failed to get last price from entity");
-        }
+    public Mono<String> getCurrentCurrency() {
+        return webClient
+                .get()
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE)
+                .accept(MediaType.TEXT_PLAIN)
+                .retrieve()
+                .bodyToMono(String.class);
     }
 
 }
