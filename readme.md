@@ -45,3 +45,14 @@ Ejemplo de respuesta:
     "averageAll": 35096.84285714286,
     "difference": -0.06769534812394795
 }
+
+# Como ejecutar el proyecto:
+
+Clonarse el proyecto https://github.com/matiasrosemberg/bitcoiner/
+Abrir la consola y correr el siguiente comandos.
+mvn clean install
+Luego de ello se generará la carpeta target.
+Por ultimo, dentro de la carpeta principal del proyecto, ejecutar el siguiente comando en la consola:
+java -jar target/bitcoiner-0.0.1-SNAPSHOT.jar 
+Esperar 5 segundos y listo!
+
