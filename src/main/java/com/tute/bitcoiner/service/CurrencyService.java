@@ -20,9 +20,9 @@ import java.util.stream.Stream;
 @Service
 public class CurrencyService {
 
-    private final CurrencyClient currencyClient;
-    private final TreeMap<Long, Currency> currencies;
-    private final Utils utils;
+    private CurrencyClient currencyClient;
+    private TreeMap<Long, Currency> currencies;
+    private Utils utils;
     private Double sum;
     private Long counter;
     private Double average;
@@ -47,6 +47,50 @@ public class CurrencyService {
 
     public Double getAverage() {
         return average;
+    }
+
+    public TreeMap<Long, Currency> getCurrencies() {
+        return currencies;
+    }
+
+    public void setCurrencies(TreeMap<Long, Currency> currencies) {
+        this.currencies = currencies;
+    }
+
+    public CurrencyClient getCurrencyClient() {
+        return currencyClient;
+    }
+
+    public Utils getUtils() {
+        return utils;
+    }
+
+    public Double getSum() {
+        return sum;
+    }
+
+    public void setSum(Double sum) {
+        this.sum = sum;
+    }
+
+    public Long getCounter() {
+        return counter;
+    }
+
+    public void setCounter(Long counter) {
+        this.counter = counter;
+    }
+
+    public void setAverage(Double average) {
+        this.average = average;
+    }
+
+    public void setCurrencyClient(CurrencyClient currencyClient) {
+        this.currencyClient = currencyClient;
+    }
+
+    public void setUtils(Utils utils) {
+        this.utils = utils;
     }
 
     @Scheduled(fixedRate = 5000)
