@@ -5,13 +5,15 @@ import com.tute.bitcoiner.dto.Currency;
 import com.tute.bitcoiner.dto.CurrencyAvg;
 import com.tute.bitcoiner.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
-@RestController
+@RestController()
 public class CurrencyOperationsController {
 
     CurrencyService currencyService;
@@ -22,12 +24,12 @@ public class CurrencyOperationsController {
     }
 
     @GetMapping("/currency")
-    public Currency getCurrency(@RequestParam(value = "timestamp") Instant instant) {
-        return currencyService.getCurrencyByTimestamp(new Timestamp(instant));
+    public Currency getCurrency(@RequestParam(value = "timestamp") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") final LocalDateTime dateTime) {
+        return currencyService.getCurrencyByTimestamp(new Timestamp(dateTime.toInstant(ZoneOffset.UTC)));
     }
 
     @GetMapping("/average")
-    public CurrencyAvg getCurrencyAverage(@RequestParam(value = "timestamp1") Instant instant, @RequestParam(value = "timestamp2") Instant instant2) {
-        return currencyService.getCurrencyAverage(new Timestamp(instant), new Timestamp(instant2));
+    public CurrencyAvg getCurrencyAverage(@RequestParam(value = "timestamp1") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") final LocalDateTime dateTime1, @RequestParam(value = "timestamp2") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") final LocalDateTime dateTime2) {
+        return currencyService.getCurrencyAverage(new Timestamp(dateTime1.toInstant(ZoneOffset.UTC)), new Timestamp(dateTime2.toInstant(ZoneOffset.UTC)));
     }
 }
