@@ -1,4 +1,4 @@
-# Deciciones tomadas:
+# Decisiones tomadas:
 
 Utilizacion de estructura Treemap<k,v>
 Permite buscar por piso o techo mas proximo a un valor mediante busqueda binaria, permitiendo la busqueda en forma logaritmica.
